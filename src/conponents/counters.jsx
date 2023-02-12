@@ -12,7 +12,9 @@ const Counter = (props) => {
     classes += value === 0 ? "bg-warning" : "bg-primary";
     return classes;
   };
-
+  const disabledButton = () => {
+    return value === 0 ? "dissable" : "";
+  };
   return (
     <div>
       <span>{props.name}</span>
@@ -31,6 +33,7 @@ const Counter = (props) => {
       </button>
       <button
         className="btn btn-danger btn-sm m-2"
+        disabled={value === 0}
         onClick={() => props.onDelete(props.id)}
       >
         Delete
